@@ -1,4 +1,4 @@
-# Angula skeleton with basic example !
+# Angular skeleton with basic example !
 
 I forked https://github.com/angular/angular-seed, go read there readme!
 

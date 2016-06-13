@@ -1,1 +1,62 @@
-<h1>Mess around here or try to recreate view 1 step by step</h1>
+<h2> Make a user! </h2>
+<form novalidate class="simple-form">
+  Name<br>
+  <input id="name" type="text" name="name" ng-model="user.name" value=""><br>
+  Username<br>
+  <input id="username" type="text" ng-model="user.username" name="username" value=""><br><br>
+  Password<br>
+  <input id="password" type="text" ng-model="user.password" name="password" value=""><br>
+  Email<br>
+  <input id="email" type="text" name="email" ng-model="user.email" value=""><br>
+  City<br>
+  <input id="city" type="text" name="city" ng-model="user.city" value=""><br>
+  Street<br>
+  <input id="street" type="text" name="street" ng-model="user.street" value=""><br>
+  Zip<br>
+  <input id="zip" type="text" name="zip" ng-model="user.zip" value=""><br>
+  <input type="submit" ng-click="signUp( user )" value="Sign Up" />
+  <input type="button" ng-click="reset()" value="Reset" />
+</form>
+  <pre>user = {{user | json}}</pre>
+  <pre>signed in as = {{response | json}}</pre>
+
+
+  <h2> Get a token! </h2>
+  <form novalidate class="simple-form">
+    Email<br>
+    <input id="email" type="text" name="email" ng-model="user.email" value=""><br>
+    Password<br>
+    <input id="password" type="text" ng-model="user.password" name="password" value=""><br>
+
+    <input type="submit" ng-click="signIn( user )" value="Sign in" />
+  </form>
+    <pre>token = {{token | json}}</pre>
+      <pre>err = {{signInErr | json}}</pre>
+    <pre>signed in as = {{user.email | json}}</pre>
+
+    <h2> Make a Thread! ( using your token ) </h2>
+    <form novalidate class="simple-form">
+      Title<br>
+      <input id="title" type="text" name="title" ng-model="user.threadTitle" value=""><br>
+
+      <input type="submit" ng-click="createThread( user )" value="Make a Thread" />
+    </form>
+      <pre>Success = {{threadSuccess | json}}</pre>
+      <pre>Thread = {{newThread | json}}</pre>
+      <pre>error = {{threadResponse | json}}</pre>
+
+      <h2> Make a post in that thread! ( using your token ) </h2>
+      <form novalidate class="simple-form">
+        Content<br>
+        <input id="title" type="text" name="title" ng-model="user.postContent" value=""><br>
+
+        <input type="submit" ng-click="createPost( user )" value="Make a Post" />
+      </form>
+        <pre>Success = {{postSuccess | json}}</pre>
+        <pre>Thread = {{newPost | json}}</pre>
+        <pre>error = {{postResponse | json}}</pre>
+
+        <h2>If you make another post it will take the thread id fromt he thread you just created and add it to this thread! Click the button and watch it get added :D</h2>
+        <input type="submit" ng-click="getThread( user )" value="Look at all the post in the thread" />
+        <pre>Thread = {{thread | json}}</pre>
+        <pre>Errors = {{ grandThreadErr | json }}</pre>
